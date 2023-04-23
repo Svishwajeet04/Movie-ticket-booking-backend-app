@@ -31,7 +31,7 @@ public class AuthFilter implements Filter {
     HttpServletRequest request = (HttpServletRequest) servletRequest;
     String authHeader = request.getHeader("Authorization");
     authHeader = authHeader.replaceAll("Basic " , "");
-    log.info("authHeader  : {}" , authHeader);
+    log.debug("authHeader  : {}" , authHeader);
     String[] creds = new String(Base64.getDecoder().decode(authHeader.getBytes(StandardCharsets.UTF_8))).split(":");
     String email = creds[0];
     String password = creds[1];
